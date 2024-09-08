@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: abc-tech-deploy
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: abc_deploy
+  template:
+    metadata:
+      labels:
+        app: abc_deploy
+    spec:
+      containers:
+      - name: abc-app
+        image: djkotla/abc_tech:latest
+        ports:
+        - containerPort: 8080
